@@ -13,10 +13,19 @@ int Request(string message)
 
 string ListOfNumbers(int number)
 {
-    if (number == 1) return "1";
-    return $"{number}, " + $"{ListOfNumbers(number - 1)}";
+  if (number == 1) return "1";
+  return $"{number}, " + $"{ListOfNumbers(number - 1)}";
 }
 
-int n = Request("Введите число N:");
-Console.WriteLine($"\nЧисла в промежутке от {n} до 1:");
-Console.Write($"N = {n} -> \"{ListOfNumbers(n)}\"");
+
+try
+{
+  int n = Request("Введите число N:");
+  Console.WriteLine($"\nЧисла в промежутке от {n} до 1:");
+  Console.Write($"N = {n} -> \"{ListOfNumbers(n)}\"");
+}
+
+catch
+{
+  Console.WriteLine("Были введены некорректные данные.");
+}
